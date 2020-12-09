@@ -1,0 +1,18 @@
+Design Aspects :
+Application is built on spring-boot mvc architecture.
+
+Entity package contains entity classes : Places and Players to persist data in database.
+
+Repository package contains repository interface which extends JpaRepository to handle all crud operations. It is like abstration of dao layer.
+
+Controller package contains API to start game and handle moves.
+
+MonopolyApplication enables all spring-boot configuration. This is point for intialization of web application.
+
+
+Assumptions:
+"Pall Mall" is designated as "start". Player crossing this will gain $200 amount.
+
+With H2 configuration, db state will not be maintained. On stopping the service player cannot continue his previous game.
+
+Game can be played with 1 or 2 player depending on what API we send. There is no validation to check if dice is rolled by alternate players.

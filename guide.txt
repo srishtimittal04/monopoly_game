@@ -1,0 +1,42 @@
+
+By-default configuration is for inmemory database H2. Thus on stopping application game data will clear. To make data persistent use MySql. For this uncomment Line-5 to Line-7 in application.properties file.
+
+Two players are allowed to play Monopoly Game having ids 1 and 2 respectively. They both start with amount $1000. Two dices will be used in game.
+
+STEPS:
+Credentials: {username: user, password: password}
+
+To start game >>  http://localhost:8080/create-game
+
+If Player-1 rolls die, url is : http://localhost:8080/roll-die/1
+
+If Player-2 rolls die, url is : http://localhost:8080/roll-die/2
+
+
+
+
+Features Implemented:
+
+Case 1 :
+Place "XYZ" not bought by any player. Active player P1 will buy and buying amount is reduced.
+Places table will be updated with owner information for a particular place.
+
+Case 2:
+Place "xyz" already bought by second player. Active player P1 will pay rent and rental amount is reduced.
+Rent is paid to another player, hence there is increment in second players amount.
+Updated amount will be displayed on browser.
+
+Case 3: 
+Place "XYZ" bought by active player only. No update in any of the players amount.
+
+Case 4:
+If a player crossed a location marked as "start" for the first time, then on next successful move, player is eligible for $200 cash increment.
+
+Case 5:
+When player is bankrupted i.e. cash is less than 0. Then game is over. Tables will be reset.
+
+Case 6:
+When total turns are 50, then result will be announced based on higher amount in hand. Finally tables will reset.
+
+
+NOTE: Create new game can be done without any restrictions. Currently no special host feature is implemented.
